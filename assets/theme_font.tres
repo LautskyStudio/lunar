@@ -1,0 +1,4 @@
+[gd_resource type="SystemFont" format=3 uid="uid://b34356jx03gh2"]
+
+[resource]
+font_names = PackedStringArray("Source Han Sans SC", "Microsoft YaHei")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bu75p0mvd4ep5"]
+
+[ext_resource type="Script" path="res://addons/lansiny_game_database/controls/numbered_item_list.gd" id="1_p6fmt"]
+
+[node name="NumberedItemList" type="ItemList"]
+script = ExtResource("1_p6fmt")

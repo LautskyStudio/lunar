@@ -8,8 +8,40 @@
 
 config_version=5
 
+_global_script_classes=[{
+"base": "Resource",
+"class": &"DatabaseEntry",
+"language": &"GDScript",
+"path": "res://addons/lansiny_game_database/objects/database_entry.gd"
+}, {
+"base": "VBoxContainer",
+"class": &"DatabaseEntryListContainer",
+"language": &"GDScript",
+"path": "res://addons/lansiny_game_database/controls/database_entry_list.gd"
+}, {
+"base": "ItemList",
+"class": &"NumberedItemList",
+"language": &"GDScript",
+"path": "res://addons/lansiny_game_database/controls/numbered_item_list.gd"
+}]
+_global_script_class_icons={
+"DatabaseEntry": "",
+"DatabaseEntryListContainer": "",
+"NumberedItemList": ""
+}
+
 [application]
 
 config/name="Lunar"
+run/main_scene="res://ui/main_scene.tscn"
 config/features=PackedStringArray("4.0", "Vulkan Clustered")
+run/low_processor_mode=true
 config/icon="res://icon.png"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/lansiny_game_database/plugin.cfg")
+
+[gui]
+
+theme/custom="res://assets/theme.tres"
