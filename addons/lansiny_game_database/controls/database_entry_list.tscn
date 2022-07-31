@@ -1,0 +1,69 @@
+[gd_scene load_steps=3 format=3 uid="uid://dveijjl4gkciw"]
+
+[ext_resource type="Script" path="res://addons/lansiny_game_database/controls/database_entry_list.gd" id="1_d3v57"]
+[ext_resource type="Script" path="res://addons/lansiny_game_database/controls/numbered_item_list.gd" id="2_kqa1t"]
+
+[node name="DatabaseEntryListContainer" type="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_d3v57")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 1024.0
+offset_bottom = 30.0
+
+[node name="DatabaseEntryListLabel" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+offset_top = 2.0
+offset_right = 848.0
+offset_bottom = 27.0
+size_flags_horizontal = 3
+text = "数据库条目"
+
+[node name="AddEntryButton" type="Button" parent="HBoxContainer"]
+unique_name_in_owner = true
+offset_left = 852.0
+offset_right = 892.0
+offset_bottom = 30.0
+text = "添加"
+
+[node name="RemoveEntryButton" type="Button" parent="HBoxContainer"]
+unique_name_in_owner = true
+offset_left = 896.0
+offset_right = 936.0
+offset_bottom = 30.0
+disabled = true
+text = "移除"
+
+[node name="MoveUpEntryButton" type="Button" parent="HBoxContainer"]
+unique_name_in_owner = true
+offset_left = 940.0
+offset_right = 980.0
+offset_bottom = 30.0
+disabled = true
+text = "上移"
+
+[node name="MoveDownEntryButton" type="Button" parent="HBoxContainer"]
+unique_name_in_owner = true
+offset_left = 984.0
+offset_right = 1024.0
+offset_bottom = 30.0
+disabled = true
+text = "下移"
+
+[node name="DatabaseEntryList" type="ItemList" parent="."]
+unique_name_in_owner = true
+offset_top = 34.0
+offset_right = 1024.0
+offset_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("2_kqa1t")
+
+[connection signal="pressed" from="HBoxContainer/AddEntryButton" to="." method="_on_add_entry_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/RemoveEntryButton" to="." method="_on_remove_entry_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/MoveUpEntryButton" to="." method="_on_move_up_entry_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/MoveDownEntryButton" to="." method="_on_move_down_entry_button_pressed"]
+[connection signal="item_selected" from="DatabaseEntryList" to="." method="_on_database_entry_list_item_selected"]
