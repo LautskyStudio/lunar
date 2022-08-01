@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://addons/lansiny_game_database/controls/database_entry_list.gd" id="1_d3v57"]
 [ext_resource type="Script" path="res://addons/lansiny_game_database/controls/numbered_item_list.gd" id="2_kqa1t"]
 
-[node name="DatabaseEntryListContainer" type="VBoxContainer"]
+[node name="LansinyDatabaseEntryListContainer" type="VBoxContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
