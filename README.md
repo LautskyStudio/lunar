@@ -1,8 +1,10 @@
 # Lansiny Game Studio Godot Plugins "Lunar"
 
-> 🌕 渌水净素月，月明白鹭飞
+> 🌕 渌水净素月，月明白鹭飞。
+>
+> 「唐」李白《秋浦歌十七首》其十三
 
-Lunar 是为 Godot 4 上实现 [Lansiny Game Studio](https://github.com/Lansiny/game_studio) 的功能而开发的一组插件。
+Lunar 是为在 Godot 4 上实现 [Lansiny Game Studio](https://github.com/Lansiny/game_studio) 的功能而开发的一组插件。
 
 ## 使用
 
