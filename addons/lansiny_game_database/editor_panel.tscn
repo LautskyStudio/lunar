@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdm42pyhry7lv"]
+[gd_scene load_steps=6 format=3 uid="uid://bdm42pyhry7lv"]
 
 [ext_resource type="Script" path="res://addons/lansiny_game_database/editor_panel.gd" id="1_ugu57"]
 [ext_resource type="PackedScene" uid="uid://dveijjl4gkciw" path="res://addons/lansiny_game_database/controls/database_entry_list.tscn" id="2_q8c2a"]
 [ext_resource type="Script" path="res://addons/lansiny_game_database/controls/database_type_list.gd" id="3_bquvu"]
+[ext_resource type="Script" path="res://addons/lansiny_game_database/controls/database_attr_list.gd" id="4_f53fr"]
+[ext_resource type="Script" path="res://addons/lansiny_game_database/controls/database_item_list.gd" id="5_oqana"]
 
 [node name="LansinyGameDatabaseEditor" type="VBoxContainer"]
 anchor_right = 1.0
@@ -26,25 +28,25 @@ text = "当前数据库"
 [node name="DatabasePathIndicator" type="Label" parent="Toolbar"]
 offset_left = 84.0
 offset_top = 2.0
-offset_right = 282.0
+offset_right = 275.0
 offset_bottom = 27.0
-text = "res://main.lannsinydb.tres"
+text = "res://main_lansinydb.tres"
 
 [node name="CreateButton" type="Button" parent="Toolbar"]
-offset_left = 286.0
-offset_right = 326.0
+offset_left = 279.0
+offset_right = 319.0
 offset_bottom = 30.0
 text = "新建"
 
 [node name="SaveButton" type="Button" parent="Toolbar"]
-offset_left = 330.0
-offset_right = 370.0
+offset_left = 323.0
+offset_right = 363.0
 offset_bottom = 30.0
 text = "保存"
 
 [node name="LoadButton" type="Button" parent="Toolbar"]
-offset_left = 374.0
-offset_right = 414.0
+offset_left = 367.0
+offset_right = 407.0
 offset_bottom = 30.0
 text = "加载"
 
@@ -59,27 +61,27 @@ alignment = 1
 [node name="TypeList" parent="HBoxContainer" instance=ExtResource("2_q8c2a")]
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_right = 256.0
+offset_right = 252.0
 offset_bottom = 566.0
 script = ExtResource("3_bquvu")
-label_text = "类型"
-entry_class = "res://addons/lansiny_game_database/objects/database_type_entry.gd"
 
 [node name="AttrList" parent="HBoxContainer" instance=ExtResource("2_q8c2a")]
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 260.0
-offset_right = 512.0
+offset_left = 256.0
+offset_right = 508.0
 offset_bottom = 566.0
-label_text = "属性"
+script = ExtResource("4_f53fr")
+parent_type_entry = null
 
 [node name="ItemList" parent="HBoxContainer" instance=ExtResource("2_q8c2a")]
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 516.0
+offset_left = 512.0
 offset_right = 768.0
 offset_bottom = 566.0
-label_text = "数据"
+script = ExtResource("5_oqana")
+parent_type_entry = null
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 offset_left = 772.0
@@ -89,10 +91,10 @@ size_flags_horizontal = 3
 alignment = 1
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
-offset_top = 258.0
+offset_top = 270.0
 offset_right = 252.0
-offset_bottom = 308.0
-text = "从左侧列表中选中一个项目以开始编辑。"
+offset_bottom = 295.0
+text = "选择项目以开始编辑。"
 vertical_alignment = 1
 autowrap_mode = 3
 
@@ -100,3 +102,7 @@ autowrap_mode = 3
 [connection signal="pressed" from="Toolbar/CreateButton" to="." method="_on_create_button_pressed"]
 [connection signal="pressed" from="Toolbar/SaveButton" to="." method="_on_save_button_pressed"]
 [connection signal="pressed" from="Toolbar/LoadButton" to="." method="_on_load_button_pressed"]
+[connection signal="entry_deselected" from="HBoxContainer/TypeList" to="HBoxContainer/AttrList" method="_on_type_list_entry_deselected"]
+[connection signal="entry_deselected" from="HBoxContainer/TypeList" to="HBoxContainer/ItemList" method="_on_type_list_entry_deselected"]
+[connection signal="entry_selected" from="HBoxContainer/TypeList" to="HBoxContainer/AttrList" method="_on_type_list_entry_selected"]
+[connection signal="entry_selected" from="HBoxContainer/TypeList" to="HBoxContainer/ItemList" method="_on_type_list_entry_selected"]
