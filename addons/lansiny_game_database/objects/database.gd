@@ -1,4 +1,4 @@
 class_name LansinyDatabase
 extends Resource
 
-var type_list: Array[LansinyDatabaseTypeEntry]
+@export var type_list: Array[Resource] # LansinyDatabaseTypeEntry

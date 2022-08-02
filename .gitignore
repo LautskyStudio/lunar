@@ -2,4 +2,5 @@
 .godot/
 
 # Runtime files
-**.lansinydb
+**/**_lansinydb.tres
+**/**_lansinydb.res

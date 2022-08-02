@@ -1,10 +1,10 @@
 @tool
-class_name LansinyDatabaseEntryListContainer
+class_name LansinyDatabaseEntryList
 extends VBoxContainer
 
 
 @export var label_text: String = "数据库条目"
-@export_file("*.gd") var entry_class = "res://addons/lansiny_game_database/objects/database_entry.gd": 
+@export_file("*.gd") var entry_class = "res://addons/lansiny_game_database/objects/database_entry.gd":
 	set = set_entry_class
 
 
@@ -16,7 +16,7 @@ extends VBoxContainer
 @onready var move_down_entry_button = %"MoveDownEntryButton" as Button
 
 
-var array: Array[LansinyDatabaseEntry] = []
+var array: Array[Resource] = [] # Resource is LansinyDatabaseEntry
 var entry_class_script: GDScript = load(entry_class)
 
 
@@ -57,7 +57,7 @@ func _on_add_entry_button_pressed():
 	entry.name = label_text + str(list.item_count + 1)
 	array.push_back(entry)
 	list.add_item(entry.name)
-	
+
 
 func _on_remove_entry_button_pressed():
 	pass # Replace with function body.
@@ -91,7 +91,7 @@ func update_button_disabled_state(index: int) -> void:
 	remove_entry_button.disabled = false
 	move_up_entry_button.disabled = !can_move_list_item_up(index)
 	move_down_entry_button.disabled = !can_move_list_item_down(index)
-	
+
 
 func _on_database_entry_list_item_selected(index: int) -> void:
 	update_button_disabled_state(index)

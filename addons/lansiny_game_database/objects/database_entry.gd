@@ -1,7 +1,9 @@
 class_name LansinyDatabaseEntry
 extends Resource
 
+
 signal removed
+
 
 enum NamingType { MANUAL, QUOTE }
 enum ValueType { NUMBER, STRING, SWITCH, QUOTE, SELECT }
