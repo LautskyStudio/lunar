@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=2 format=3 uid="uid://is42jeopji3k"]
 
 [ext_resource type="Script" path="res://addons/lansiny_game_database/controls/composite_editor/string_editing_slot.gd" id="1_48dc5"]
 
-[node name="StringEditingSlotTemplate" type="HBoxContainer"]
+[node name="StringEditingSlot" type="HBoxContainer"]
 offset_top = 34.0
 offset_right = 1024.0
 offset_bottom = 56.0

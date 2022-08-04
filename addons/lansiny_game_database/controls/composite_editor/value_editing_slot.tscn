@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://8ffcfu3etnff"]
+
+[ext_resource type="Script" path="res://addons/lansiny_game_database/controls/composite_editor/value_editing_slot.gd" id="1_1jtmm"]
+[ext_resource type="PackedScene" uid="uid://difchaqqe2674" path="res://addons/lansiny_game_database/controls/composite_editor/number_editing_slot.tscn" id="1_t7raw"]
+[ext_resource type="PackedScene" uid="uid://is42jeopji3k" path="res://addons/lansiny_game_database/controls/composite_editor/string_editing_slot.tscn" id="2_reh4m"]
+[ext_resource type="PackedScene" uid="uid://cm7s47e3bwd53" path="res://addons/lansiny_game_database/controls/composite_editor/value_type_editing_slot.tscn" id="2_y1hn7"]
+[ext_resource type="PackedScene" uid="uid://b8amwg2pm2kui" path="res://addons/lansiny_game_database/controls/composite_editor/switch_editing_slot.tscn" id="3_643t8"]
+
+[node name="ValueEditingSlot" type="VBoxContainer"]
+anchor_right = 1.0
+offset_bottom = 22.0
+size_flags_horizontal = 3
+script = ExtResource("1_1jtmm")
+
+[node name="ValueTypeEditingSlot" parent="." instance=ExtResource("2_y1hn7")]
+unique_name_in_owner = true
+anchor_right = 0.0
+offset_right = 1024.0
+offset_bottom = 30.0
+label_text = "类型"
+
+[node name="NumberEditingSlot" parent="." instance=ExtResource("1_t7raw")]
+unique_name_in_owner = true
+anchor_right = 0.0
+offset_top = 34.0
+offset_right = 1024.0
+offset_bottom = 64.0
+
+[node name="StringEditingSlot" parent="." instance=ExtResource("2_reh4m")]
+unique_name_in_owner = true
+offset_top = 68.0
+offset_bottom = 102.0
+
+[node name="SwitchEditingSlot" parent="." instance=ExtResource("3_643t8")]
+unique_name_in_owner = true
+anchor_right = 0.0
+offset_top = 106.0
+offset_right = 1024.0
+offset_bottom = 131.0
+
+[connection signal="value_changed" from="ValueTypeEditingSlot" to="." method="_on_value_type_editing_slot_value_changed"]
+[connection signal="value_changed" from="NumberEditingSlot" to="." method="_on_number_editing_slot_value_changed"]
+[connection signal="value_changed" from="StringEditingSlot" to="." method="_on_string_editing_slot_value_changed"]
+[connection signal="value_changed" from="SwitchEditingSlot" to="." method="_on_switch_editing_slot_value_changed"]

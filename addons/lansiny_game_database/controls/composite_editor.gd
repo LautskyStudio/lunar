@@ -5,6 +5,7 @@ extends VBoxContainer
 const NumberEditingSlot = preload("res://addons/lansiny_game_database/controls/composite_editor/number_editing_slot.tscn")
 const StringEditingSlot = preload("res://addons/lansiny_game_database/controls/composite_editor/string_editing_slot.tscn")
 const SwitchEditingSlot = preload("res://addons/lansiny_game_database/controls/composite_editor/switch_editing_slot.tscn")
+const ValueEditingSlot = preload("res://addons/lansiny_game_database/controls/composite_editor/value_editing_slot.tscn")
 const ValueTypeEditingSlot = preload("res://addons/lansiny_game_database/controls/composite_editor/value_type_editing_slot.tscn")
 
 
@@ -52,7 +53,7 @@ func setup_attr_entry_editor():
 	entry_type_indicator.set_text("属性定义")
 	add_slot(StringEditingSlot, "属性名称", "name")
 	add_slot(StringEditingSlot, "属性注释", "description")
-	add_slot(ValueTypeEditingSlot, "值类型", "value_type")
+	add_value_editing_slot(editing_entry)
 
 
 func clear_entry_editor():
@@ -69,6 +70,12 @@ func add_slot(packed_slot: PackedScene, label_text, entry_prop):
 	slot.label_text = label_text
 	slot.set_value(editing_entry[entry_prop])
 	slot.connect("value_changed", func (value): editing_entry[entry_prop] = value)
+	slot_container.add_child(slot)
+
+
+func add_value_editing_slot(attr_entry):
+	var slot = ValueEditingSlot.instantiate()
+	slot.bind_attr_entry(attr_entry)
 	slot_container.add_child(slot)
 
 

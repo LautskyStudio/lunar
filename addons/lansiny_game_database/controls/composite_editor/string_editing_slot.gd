@@ -5,7 +5,8 @@ extends HBoxContainer
 signal value_changed(value)
 
 
-@export var label_text = "标签文本"
+@export var label_text = "标签文本":
+	set = set_label_text
 @export var value = ""
 
 

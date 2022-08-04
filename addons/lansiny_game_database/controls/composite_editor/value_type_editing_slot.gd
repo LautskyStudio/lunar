@@ -6,7 +6,7 @@ signal value_changed(value)
 
 
 @export var label_text = "标签文本"
-@export var value = LansinyDatabaseEntry.ValueType.NUMBER
+@export var value: LansinyDatabaseEntry.ValueType = LansinyDatabaseEntry.ValueType.NUMBER
 
 
 @onready var label = %"Label" as Label

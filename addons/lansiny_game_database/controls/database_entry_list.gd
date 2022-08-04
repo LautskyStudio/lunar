@@ -4,7 +4,7 @@ extends VBoxContainer
 
 
 signal entry_deselected
-signal entry_selected(entry: Resource)
+signal entry_selected(entry)
 
 
 @onready var list = %"DatabaseEntryList" as ItemList
@@ -46,9 +46,24 @@ func set_entry_script_path(path):
 	entry_script = load(path)
 
 
+func add_entry(entry):
+	entry.connect("entry_changed", self._on_entry_changed)
+	entry.connect("entry_removed", self._on_entry_removed)
+
+	if self.is_inside_tree():
+		list.add_item(entry.name)
+		list.set_item_tooltip(list.item_count - 1, entry.description)
+		list.set_item_metadata(list.item_count - 1, entry)
+
+
+func remove_entry(entry):
+	entry.disconnect("entry_changed", self._on_entry_changed)
+	entry.disconnect("entry_removed", self._on_entry_removed)
+
+
 func set_array(array):
 	for entry in self.array:
-		entry.disconnect("entry_removed", self._on_entry_removed)
+		remove_entry(entry)
 
 	if self.is_inside_tree():
 		list.clear()
@@ -56,10 +71,7 @@ func set_array(array):
 
 	self.array = array
 	for entry in self.array:
-		entry.connect("entry_removed", self._on_entry_removed)
-		if self.is_inside_tree():
-			list.add_item(entry.name)
-			list.set_item_metadata(list.item_count - 1, entry)
+		add_entry(entry)
 
 
 func set_entry_type(entry_type: String):
@@ -76,9 +88,7 @@ func _on_add_entry_button_pressed():
 	var entry = entry_script.new() as LansinyDatabaseEntry
 	entry.name = list_label.text + str(list.item_count + 1)
 	array.push_back(entry)
-
-	list.add_item(entry.name)
-	list.select(list.item_count - 1, true)
+	add_entry(entry)
 	emit_signal("entry_selected", entry)
 
 
@@ -91,6 +101,13 @@ func _on_remove_entry_button_pressed():
 	if index >= 0:
 		var entry = array[index]
 		entry.remove()
+
+
+func _on_entry_changed(changed_entry):
+	for idx in range(list.item_count):
+		if list.get_item_metadata(idx) == changed_entry:
+			list.set_item_text(idx, changed_entry.name)
+			list.set_item_tooltip(idx, changed_entry.description)
 
 
 func _on_entry_removed(removed_entry):
