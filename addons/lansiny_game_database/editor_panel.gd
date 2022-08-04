@@ -2,7 +2,10 @@
 extends VBoxContainer
 
 
-signal database_loaded(db: LansinyDatabase)
+signal database_loaded(db: Resource)
+
+
+@onready var type_list = %TypeList
 
 
 var db: LansinyDatabase
@@ -30,4 +33,5 @@ func _on_save_button_pressed():
 
 
 func _on_load_button_pressed():
+	type_list.clear_selection()
 	load_main_database()

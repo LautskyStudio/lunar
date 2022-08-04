@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8amwg2pm2kui"]
+
+[ext_resource type="Script" path="res://addons/lansiny_game_database/controls/composite_editor/switch_editing_slot.gd" id="1_77joq"]
+
+[node name="HBoxContainer" type="HBoxContainer"]
+anchor_right = 1.0
+offset_bottom = 24.0
+size_flags_horizontal = 3
+script = ExtResource("1_77joq")
+label_text = "标签文本"
+value = true
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+offset_top = 1.0
+offset_right = 510.0
+offset_bottom = 23.0
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 514.0
+offset_right = 1024.0
+offset_bottom = 24.0
+size_flags_horizontal = 3
+
+[node name="CheckButton" type="CheckButton" parent="HBoxContainer"]
+unique_name_in_owner = true
+offset_right = 44.0
+offset_bottom = 24.0
+
+[node name="Padding" type="Label" parent="HBoxContainer"]
+offset_left = 48.0
+offset_top = 1.0
+offset_right = 510.0
+offset_bottom = 23.0
+size_flags_horizontal = 3
+
+[connection signal="pressed" from="HBoxContainer/CheckButton" to="." method="_on_check_button_pressed"]

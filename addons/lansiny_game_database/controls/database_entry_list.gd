@@ -4,7 +4,7 @@ extends VBoxContainer
 
 
 signal entry_deselected
-signal entry_selected(entry: LansinyDatabaseEntry)
+signal entry_selected(entry: Resource)
 
 
 @onready var list = %"DatabaseEntryList" as ItemList
@@ -16,7 +16,7 @@ signal entry_selected(entry: LansinyDatabaseEntry)
 
 
 var array: Array[Resource] = [] # Array[LansinyDatabaseEntry]
-var entry_script_path = "res://addons/lansiny_game_database/objects/database_entry.gd":
+var entry_script_path = "res://addons/lansiny_game_database/resources/database_entry.gd":
 	set = set_entry_script_path
 var entry_script: GDScript = load(entry_script_path)
 
@@ -27,6 +27,11 @@ func activate():
 
 func disactivate():
 	update_tool_button_state(-1, false)
+
+
+func clear_selection():
+	list.deselect_all()
+	emit_signal("entry_deselected")
 
 
 func get_selected_list_item_index() -> int:
@@ -42,6 +47,9 @@ func set_entry_script_path(path):
 
 
 func set_array(array):
+	if self.array == array:
+		return
+
 	for entry in self.array:
 		entry.disconnect("entry_removed", self._on_entry_removed)
 
@@ -71,7 +79,10 @@ func _on_add_entry_button_pressed():
 	var entry = entry_script.new() as LansinyDatabaseEntry
 	entry.name = list_label.text + str(list.item_count + 1)
 	array.push_back(entry)
+
 	list.add_item(entry.name)
+	list.select(list.item_count - 1, true)
+	emit_signal("entry_selected", entry)
 
 
 func can_remove_list_item(index):

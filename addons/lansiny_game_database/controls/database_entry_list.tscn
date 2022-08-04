@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://addons/lansiny_game_database/controls/database_entry_list.gd" id="1_d3v57"]
 [ext_resource type="Script" path="res://addons/lansiny_game_database/controls/numbered_item_list.gd" id="2_kqa1t"]
 
-[node name="LansinyDatabaseEntryListContainer" type="VBoxContainer"]
+[node name="LansinyDatabaseEntryList" type="VBoxContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
@@ -60,6 +60,7 @@ offset_right = 1024.0
 offset_bottom = 600.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+allow_reselect = true
 script = ExtResource("2_kqa1t")
 
 [connection signal="pressed" from="HBoxContainer/AddEntryButton" to="." method="_on_add_entry_button_pressed"]

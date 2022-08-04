@@ -6,6 +6,7 @@ extends ItemList
 @export var numbering_enabled = true
 @export_range(0, 4) var minimun_numbering_digits = 2
 
+
 var item_texts: Array = []
 
 

@@ -6,6 +6,10 @@ extends LansinyDatabaseEntryList
 	set = set_parent_type_entry
 
 
+func _init():
+	self.set_entry_script_path("res://addons/lansiny_game_database/resources/database_attr_entry.gd")
+
+
 func _ready():
 	list_label.text = "属性"
 	if parent_type_entry == null:

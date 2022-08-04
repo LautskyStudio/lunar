@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://cm7s47e3bwd53"]
+
+[ext_resource type="Script" path="res://addons/lansiny_game_database/controls/composite_editor/value_type_editing_slot.gd" id="1_5q02l"]
+
+[node name="ValueTypeEditingSlot" type="HBoxContainer"]
+anchor_right = 1.0
+offset_bottom = 22.0
+size_flags_horizontal = 3
+script = ExtResource("1_5q02l")
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+offset_top = 4.0
+offset_right = 510.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+
+[node name="MenuButton" type="MenuButton" parent="."]
+unique_name_in_owner = true
+offset_left = 514.0
+offset_right = 1024.0
+offset_bottom = 30.0
+size_flags_horizontal = 3
+text = "选项"
+flat = false
+alignment = 0
+item_count = 4
+popup/item_0/text = "数值"
+popup/item_0/id = 0
+popup/item_1/text = "字符串"
+popup/item_1/id = 1
+popup/item_2/text = "开关"
+popup/item_2/id = 2
+popup/item_3/text = "选项"
+popup/item_3/id = 3

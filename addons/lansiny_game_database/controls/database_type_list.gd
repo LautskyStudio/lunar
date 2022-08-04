@@ -3,7 +3,7 @@ extends LansinyDatabaseEntryList
 
 
 func _init():
-	self.set_entry_script_path("res://addons/lansiny_game_database/objects/database_type_entry.gd")
+	self.set_entry_script_path("res://addons/lansiny_game_database/resources/database_type_entry.gd")
 
 
 func _ready():

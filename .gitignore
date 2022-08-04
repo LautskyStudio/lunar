@@ -4,3 +4,7 @@
 # Runtime files
 **/**_lansinydb.tres
 **/**_lansinydb.res
+
+# Exported assets
+export_presets.cfg
+exports

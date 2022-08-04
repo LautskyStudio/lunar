@@ -2,17 +2,15 @@ class_name LansinyDatabaseEntry
 extends Resource
 
 
-signal entry_removed
+signal entry_removed(entry: LansinyDatabaseEntry)
+signal entry_changed(entry: LansinyDatabaseEntry)
 
 
-enum NamingType { MANUAL, QUOTE }
-enum ValueType { NUMBER, STRING, SWITCH, QUOTE, SELECT }
+enum ValueType { NUMBER, STRING, SWITCH, SELECT }
 
 
 @export var entry_id: int
 @export var name: String = ""
-@export var name_quoted_from := 0
-@export var naming_type: NamingType = NamingType.MANUAL
 @export_multiline var description: String = ""
 
 
