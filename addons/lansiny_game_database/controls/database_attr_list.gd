@@ -18,7 +18,8 @@ func _ready():
 
 func set_parent_type_entry(type_entry):
 	parent_type_entry = type_entry
-	if type_entry:
+
+	if parent_type_entry:
 		set_array(parent_type_entry.attr_list)
 	else:
 		set_array([])

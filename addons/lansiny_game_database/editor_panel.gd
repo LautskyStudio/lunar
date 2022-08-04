@@ -5,6 +5,7 @@ extends VBoxContainer
 signal database_loaded(db: Resource)
 
 
+@onready var database_path_indicator = %DatabasePathIndicator
 @onready var type_list = %TypeList
 
 
@@ -13,6 +14,7 @@ var db_path := "res://main_lansinydb.tres"
 
 
 func _ready():
+	database_path_indicator.set_text(db_path)
 	load_main_database()
 
 

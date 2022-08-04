@@ -18,3 +18,4 @@ Lunar 是为在 Godot 4 上实现 [Lansiny Game Studio](https://github.com/Lansi
 ### 已知限制
 
 - 由于 Godot 4.0 暂不支持导出自定义 Resource 类型，因此导出 Resource 类型只能是 Resource 基类。这给使用自定义 Resource 类型的代码的静态类型检查带来了一点麻烦。受影响的代码主要是 `res://addons/lansiny_game_database/objects/` 中的代码。
+- 类型检查失败时，被检查的变量将被静默地转换为 `null`。

@@ -67,4 +67,5 @@ script = ExtResource("2_kqa1t")
 [connection signal="pressed" from="HBoxContainer/RemoveEntryButton" to="." method="_on_remove_entry_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/MoveUpEntryButton" to="." method="_on_move_up_entry_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/MoveDownEntryButton" to="." method="_on_move_down_entry_button_pressed"]
+[connection signal="empty_clicked" from="DatabaseEntryList" to="." method="_on_database_entry_list_empty_clicked"]
 [connection signal="item_selected" from="DatabaseEntryList" to="." method="_on_database_entry_list_item_selected"]

@@ -1,3 +1,4 @@
+class_name LansinyDatabaseEntryCompositeEditor
 extends VBoxContainer
 
 
@@ -54,18 +55,6 @@ func setup_attr_entry_editor():
 	add_slot(ValueTypeEditingSlot, "值类型", "value_type")
 
 
-func _on_type_list_entry_selected(entry):
-	set_editing_entry(entry)
-
-
-func _on_attr_list_entry_selected(entry):
-	set_editing_entry(entry)
-
-
-func _on_item_list_entry_selected(entry):
-	set_editing_entry(entry)
-
-
 func clear_entry_editor():
 	for node in slot_container.get_children():
 		node.queue_free()
@@ -81,3 +70,19 @@ func add_slot(packed_slot: PackedScene, label_text, entry_prop):
 	slot.set_value(editing_entry[entry_prop])
 	slot.connect("value_changed", func (value): editing_entry[entry_prop] = value)
 	slot_container.add_child(slot)
+
+
+func _on_type_list_entry_selected(entry):
+	set_editing_entry(entry)
+
+
+func _on_attr_list_entry_selected(entry):
+	set_editing_entry(entry)
+
+
+func _on_item_list_entry_selected(entry):
+	set_editing_entry(entry)
+
+
+func _on_type_list_entry_deselected():
+	set_editing_entry(null)

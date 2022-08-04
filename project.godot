@@ -25,6 +25,11 @@ _global_script_classes=[{
 "path": "res://addons/lansiny_game_database/resources/database_entry.gd"
 }, {
 "base": "VBoxContainer",
+"class": &"LansinyDatabaseEntryCompositeEditor",
+"language": &"GDScript",
+"path": "res://addons/lansiny_game_database/controls/composite_editor.gd"
+}, {
+"base": "VBoxContainer",
 "class": &"LansinyDatabaseEntryList",
 "language": &"GDScript",
 "path": "res://addons/lansiny_game_database/controls/database_entry_list.gd"
@@ -48,6 +53,7 @@ _global_script_class_icons={
 "LansinyDatabase": "",
 "LansinyDatabaseAttrEntry": "",
 "LansinyDatabaseEntry": "",
+"LansinyDatabaseEntryCompositeEditor": "",
 "LansinyDatabaseEntryList": "",
 "LansinyDatabaseItemEntry": "",
 "LansinyDatabaseTypeEntry": "",

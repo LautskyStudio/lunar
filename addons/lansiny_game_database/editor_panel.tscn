@@ -27,6 +27,7 @@ offset_bottom = 27.0
 text = "当前数据库"
 
 [node name="DatabasePathIndicator" type="Label" parent="Toolbar"]
+unique_name_in_owner = true
 offset_left = 84.0
 offset_top = 2.0
 offset_right = 275.0
@@ -101,6 +102,7 @@ offset_bottom = 566.0
 [connection signal="pressed" from="Toolbar/LoadButton" to="." method="_on_load_button_pressed"]
 [connection signal="entry_deselected" from="HBoxContainer/TypeList" to="HBoxContainer/AttrList" method="_on_type_list_entry_deselected"]
 [connection signal="entry_deselected" from="HBoxContainer/TypeList" to="HBoxContainer/ItemList" method="_on_type_list_entry_deselected"]
+[connection signal="entry_deselected" from="HBoxContainer/TypeList" to="HBoxContainer/CompositeEditor" method="_on_type_list_entry_deselected"]
 [connection signal="entry_selected" from="HBoxContainer/TypeList" to="HBoxContainer/AttrList" method="_on_type_list_entry_selected"]
 [connection signal="entry_selected" from="HBoxContainer/TypeList" to="HBoxContainer/ItemList" method="_on_type_list_entry_selected"]
 [connection signal="entry_selected" from="HBoxContainer/TypeList" to="HBoxContainer/CompositeEditor" method="_on_type_list_entry_selected"]
