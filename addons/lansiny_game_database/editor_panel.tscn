@@ -106,5 +106,7 @@ offset_bottom = 566.0
 [connection signal="entry_selected" from="HBoxContainer/TypeList" to="HBoxContainer/AttrList" method="_on_type_list_entry_selected"]
 [connection signal="entry_selected" from="HBoxContainer/TypeList" to="HBoxContainer/ItemList" method="_on_type_list_entry_selected"]
 [connection signal="entry_selected" from="HBoxContainer/TypeList" to="HBoxContainer/CompositeEditor" method="_on_type_list_entry_selected"]
+[connection signal="entry_selected" from="HBoxContainer/AttrList" to="HBoxContainer/ItemList" method="_on_attr_list_entry_selected"]
 [connection signal="entry_selected" from="HBoxContainer/AttrList" to="HBoxContainer/CompositeEditor" method="_on_attr_list_entry_selected"]
+[connection signal="entry_selected" from="HBoxContainer/ItemList" to="HBoxContainer/AttrList" method="_on_item_list_entry_selected"]
 [connection signal="entry_selected" from="HBoxContainer/ItemList" to="HBoxContainer/CompositeEditor" method="_on_item_list_entry_selected"]

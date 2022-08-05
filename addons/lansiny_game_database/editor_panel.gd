@@ -3,6 +3,7 @@ extends VBoxContainer
 
 
 signal database_loaded(db: Resource)
+signal database_saved(db: Resource)
 
 
 @onready var database_path_indicator = %DatabasePathIndicator
@@ -32,6 +33,7 @@ func _on_create_button_pressed():
 
 func _on_save_button_pressed():
 	ResourceSaver.save(db_path, db)
+	emit_signal("database_saved", db)
 
 
 func _on_load_button_pressed():

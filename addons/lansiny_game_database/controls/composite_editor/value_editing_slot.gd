@@ -38,7 +38,9 @@ func _setup_slots():
 			set_label_text("值")
 		else:
 			value_type_slot.visible = false
-			set_label_text("%s值" % bound_attr_entry.name if bound_attr_entry else "值")
+			set_label_text("%s" % bound_attr_entry.name if bound_attr_entry else "值")
+
+		value_type_slot.set_value(value_type)
 
 		number_slot.set_value(value_number)
 		number_slot.visible = value_type == LansinyDatabaseEntry.ValueType.NUMBER

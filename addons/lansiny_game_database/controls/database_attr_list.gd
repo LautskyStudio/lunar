@@ -37,3 +37,7 @@ func _on_type_list_entry_selected(entry):
 
 func _on_type_list_entry_deselected():
 	set_parent_type_entry(null)
+
+
+func _on_item_list_entry_selected(entry):
+	clear_selection()

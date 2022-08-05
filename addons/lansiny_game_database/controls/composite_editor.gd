@@ -13,8 +13,14 @@ const ValueTypeEditingSlot = preload("res://addons/lansiny_game_database/control
 @onready var slot_container = %EditingSlotContainer as VBoxContainer
 
 
+var type_entry: Resource = null:
+	set = set_type_entry
 var editing_entry: Resource = null:
 	set = set_editing_entry
+
+
+func set_type_entry(p_type_entry):
+	type_entry = p_type_entry
 
 
 func set_editing_entry(entry):
@@ -38,7 +44,7 @@ func setup_entry_editor() -> void:
 	elif editing_entry is LansinyDatabaseAttrEntry:
 		setup_attr_entry_editor()
 	elif editing_entry is LansinyDatabaseItemEntry:
-		entry_type_indicator.set_text("数据编辑")
+		setup_value_entry_editor()
 	else:
 		entry_type_indicator.set_text("未知状态")
 
@@ -54,6 +60,13 @@ func setup_attr_entry_editor():
 	add_slot(StringEditingSlot, "属性名称", "name")
 	add_slot(StringEditingSlot, "属性注释", "description")
 	add_value_editing_slot(editing_entry)
+
+
+func setup_value_entry_editor():
+	entry_type_indicator.set_text("数据编辑")
+	editing_entry._update_attr_dict(type_entry)
+	for key in editing_entry.attr_dict.keys():
+		add_value_editing_slot(editing_entry.attr_dict[key], false)
 
 
 func clear_entry_editor():
@@ -73,14 +86,16 @@ func add_slot(packed_slot: PackedScene, label_text, entry_prop):
 	slot_container.add_child(slot)
 
 
-func add_value_editing_slot(attr_entry):
+func add_value_editing_slot(attr_entry, value_type_editable = true):
 	var slot = ValueEditingSlot.instantiate()
+	slot.value_type_editable = value_type_editable
 	slot.bind_attr_entry(attr_entry)
 	slot_container.add_child(slot)
 
 
 func _on_type_list_entry_selected(entry):
 	set_editing_entry(entry)
+	set_type_entry(entry)
 
 
 func _on_attr_list_entry_selected(entry):
@@ -89,6 +104,11 @@ func _on_attr_list_entry_selected(entry):
 
 func _on_item_list_entry_selected(entry):
 	set_editing_entry(entry)
+	if not type_entry:
+		printerr("BUG: 无法编辑无主的 ItemEntry。")
+		printerr("\t", var2str(entry))
+		print_stack()
+		assert(type_entry)
 
 
 func _on_type_list_entry_deselected():

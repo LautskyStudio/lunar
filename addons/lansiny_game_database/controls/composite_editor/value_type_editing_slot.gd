@@ -16,8 +16,7 @@ signal value_changed(value)
 
 func _ready():
 	label.text = label_text
-	popup.set_current_index(value)
-	menu_button.set_text(popup.get_item_text(popup.get_current_index()))
+	set_checked_option(value)
 	popup.connect("id_pressed", self._on_popup_id_pressed)
 
 
@@ -27,10 +26,15 @@ func set_label_text(text: String) -> void:
 		label.set_text(text)
 
 
-func set_value(value):
-	self.value = value
+func set_checked_option(idx: int):
+	popup.set_current_index(idx)
+	menu_button.set_text(popup.get_item_text(popup.get_current_index()))
+
+
+func set_value(p_value):
+	value = p_value
 	if self.is_inside_tree():
-		menu_button.get_popup().set_current_index(value)
+		set_checked_option(value)
 
 
 func _on_popup_id_pressed(id: int):
