@@ -66,6 +66,8 @@ func setup_attr_entry_editor():
 func setup_value_entry_editor():
 	entry_type_indicator.set_text("数据编辑")
 	editing_entry._update_attr_dict(type_entry)
+	add_slot(StringEditingSlot, "数据名称", "name")
+	add_slot(StringEditingSlot, "数据注释", "description")
 	for key in editing_entry.attr_dict.keys():
 		add_value_editing_slot(editing_entry.attr_dict[key], false)
 

@@ -7,24 +7,32 @@ signal entry_removed(entry: LansinyDatabaseEntry)
 signal entry_changed(entry: LansinyDatabaseEntry)
 
 
-enum ValueType { NUMBER, STRING, SWITCH, SELECT }
+enum ValueType { NUMBER, STRING, SWITCH }
 
 
-@export var entry_id: int
-@export var name: String = "":
-	set = set_name
-@export_multiline var description: String = "":
-	set = set_description
+@export var meta: Resource = LansinyDatabaseEntryMeta.new()
+@export var name: String:
+	set = set_name, get = get_name
+@export_multiline var description: String:
+	set = set_description, get = get_description
 
 
-func set_name(p_name):
-	name = p_name
+func set_name(name):
+	meta.name = name
 	emit_signal("entry_changed", self)
 
 
-func set_description(p_description):
-	description = p_description
+func get_name():
+	return meta.name
+
+
+func set_description(description):
+	meta.description = description
 	emit_signal("entry_changed", self)
+
+
+func get_description():
+	return meta.description
 
 
 func remove() -> void:

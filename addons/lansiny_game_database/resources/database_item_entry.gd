@@ -16,6 +16,7 @@ func _update_attr_dict(type_entry):
 			valid_keys.append(key)
 			if not key in attr_keys:
 				attr_dict[key] = key.duplicate()
+				attr_dict[key].value = attr_dict[key].value.duplicate()
 
 		# 删除在 TypeEntry 不存在的 key 而在 ItemEntry 中冗余的 key
 		for key in attr_dict.keys():

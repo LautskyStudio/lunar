@@ -20,6 +20,11 @@ _global_script_classes=[{
 "path": "res://addons/lansiny_game_database/resources/database_attr_entry.gd"
 }, {
 "base": "Resource",
+"class": &"LansinyDatabaseAttrMeta",
+"language": &"GDScript",
+"path": "res://addons/lansiny_game_database/resources/database_attr_entry_meta.gd"
+}, {
+"base": "Resource",
 "class": &"LansinyDatabaseEntry",
 "language": &"GDScript",
 "path": "res://addons/lansiny_game_database/resources/database_entry.gd"
@@ -34,6 +39,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://addons/lansiny_game_database/controls/database_entry_list.gd"
 }, {
+"base": "Resource",
+"class": &"LansinyDatabaseEntryMeta",
+"language": &"GDScript",
+"path": "res://addons/lansiny_game_database/resources/database_entry_meta.gd"
+}, {
 "base": "LansinyDatabaseEntry",
 "class": &"LansinyDatabaseItemEntry",
 "language": &"GDScript",
@@ -44,6 +54,16 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://addons/lansiny_game_database/resources/database_type_entry.gd"
 }, {
+"base": "Resource",
+"class": &"LansinyDatabaseValue",
+"language": &"GDScript",
+"path": "res://addons/lansiny_game_database/resources/database_value.gd"
+}, {
+"base": "Resource",
+"class": &"LansinyDatabaseValueType",
+"language": &"GDScript",
+"path": "res://addons/lansiny_game_database/resources/database_value_type.gd"
+}, {
 "base": "ItemList",
 "class": &"NumberedItemList",
 "language": &"GDScript",
@@ -52,11 +72,15 @@ _global_script_classes=[{
 _global_script_class_icons={
 "LansinyDatabase": "",
 "LansinyDatabaseAttrEntry": "",
+"LansinyDatabaseAttrMeta": "",
 "LansinyDatabaseEntry": "",
 "LansinyDatabaseEntryCompositeEditor": "",
 "LansinyDatabaseEntryList": "",
+"LansinyDatabaseEntryMeta": "",
 "LansinyDatabaseItemEntry": "",
 "LansinyDatabaseTypeEntry": "",
+"LansinyDatabaseValue": "",
+"LansinyDatabaseValueType": "",
 "NumberedItemList": ""
 }
 
