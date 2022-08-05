@@ -68,6 +68,10 @@ config/features=PackedStringArray("4.0", "Vulkan Clustered")
 run/low_processor_mode=true
 config/icon="res://icon.png"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/lansiny_game_database/plugin.cfg")
+
 [gui]
 
 theme/custom="res://assets/theme.tres"
